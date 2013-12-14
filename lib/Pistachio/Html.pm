@@ -2,7 +2,7 @@ package Pistachio::Html;
 
 # ABSTRACT: provides snippet(), which turns source code text into stylish HTML
 
-$VERSION = 0.01;
+our $VERSION = '0.02'; # VERSION
 
 use strict;
 use warnings;
@@ -88,7 +88,7 @@ Pistachio::Html - provides snippet(), which turns source code text into stylish 
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 

@@ -2,7 +2,7 @@ package Pistachio::Css::Github::Perl5;
 
 # ABSTRACT: provides token(), which turns a token type into css style text
 
-$VERSION = 0.01;
+our $VERSION = '0.02'; # VERSION
 
 use strict;
 use warnings;
@@ -70,7 +70,7 @@ Pistachio::Css::Github::Perl5 - provides token(), which turns a token type into 
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 AUTHOR
 

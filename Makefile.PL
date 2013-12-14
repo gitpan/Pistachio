@@ -19,16 +19,37 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Pistachio",
-  "PREREQ_PM" => {},
-  "TEST_REQUIRES" => {},
-  "VERSION" => "0.01",
+  "PREREQ_PM" => {
+    "Carp" => 0,
+    "Exporter" => 0,
+    "HTML::Entities" => 0,
+    "Module::Load" => 0,
+    "PPI::Tokenizer" => 0,
+    "constant" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "TEST_REQUIRES" => {
+    "Test::More" => 0
+  },
+  "VERSION" => "0.02",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
 
-my %FallbackPrereqs = ();
+my %FallbackPrereqs = (
+  "Carp" => 0,
+  "Exporter" => 0,
+  "HTML::Entities" => 0,
+  "Module::Load" => 0,
+  "PPI::Tokenizer" => 0,
+  "Test::More" => 0,
+  "constant" => 0,
+  "strict" => 0,
+  "warnings" => 0
+);
 
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {

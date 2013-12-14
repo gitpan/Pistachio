@@ -2,7 +2,7 @@ package Pistachio::Supported;
 
 # ABSTRACT: provides supported_languages() and supported_styles()
 
-$VERSION = 0.01;
+our $VERSION = '0.02'; # VERSION
 
 use strict;
 use warnings;
@@ -66,7 +66,7 @@ Pistachio::Supported - provides supported_languages() and supported_styles()
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 AUTHOR
 

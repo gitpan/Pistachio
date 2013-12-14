@@ -2,7 +2,7 @@ package Pistachio::Token::Constructor::Perl5;
 
 # ABSTRACT: provides text_to_tokens()
 
-$VERSION = 0.01;
+our $VERSION = '0.02'; # VERSION
 
 use strict;
 use warnings;
@@ -49,7 +49,7 @@ Pistachio::Token::Constructor::Perl5 - provides text_to_tokens()
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNPOSIS
 
@@ -59,6 +59,10 @@ version 0.01
  for my $token (@$tokens) {
      print $token->type, ': ', $token->value, "\n";
  }
+
+=head1 NOTES
+
+This module uses L<PPI::Tokenizer> to tokenize Perl5 source code.
 
 =head1 AUTHOR
 

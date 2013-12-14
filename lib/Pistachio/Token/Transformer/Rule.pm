@@ -2,7 +2,7 @@ package Pistachio::Token::Transformer::Rule;
 
 # ABSTRACT: express a transformer rule as an object
 
-$VERSION = 0.01;
+our $VERSION = '0.02'; # VERSION
 
 use strict;
 use warnings;
@@ -37,7 +37,7 @@ Pistachio::Token::Transformer::Rule - express a transformer rule as an object
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
