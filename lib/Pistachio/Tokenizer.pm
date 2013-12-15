@@ -2,7 +2,7 @@ package Pistachio::Tokenizer;
 
 # ABSTRACT: provides iterator(), which turns source code text into a Pistachio::Token iterator
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
@@ -176,7 +176,7 @@ Pistachio::Tokenizer - provides iterator(), which turns source code text into a 
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

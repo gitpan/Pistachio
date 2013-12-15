@@ -2,7 +2,7 @@ package Pistachio::Token::Constructor::Perl5;
 
 # ABSTRACT: provides text_to_tokens()
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
@@ -49,7 +49,7 @@ Pistachio::Token::Constructor::Perl5 - provides text_to_tokens()
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNPOSIS
 

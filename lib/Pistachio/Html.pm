@@ -2,7 +2,7 @@ package Pistachio::Html;
 
 # ABSTRACT: provides snippet(), which turns source code text into stylish HTML
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
@@ -49,7 +49,7 @@ sub snippet {
     my ($this, $text) = @_;
 
     NUMBER_STRIP: my $num_strip = do {
-        my @nums = 1 .. (split /\n/, $$text);
+        my @nums = 1 .. @{[split /\n/, $$text]};
         my $spec = '<div style="%s">%d</div>';
         my @divs = map sprintf($spec, &number_cell, $_), @nums;
 
@@ -88,7 +88,7 @@ Pistachio::Html - provides snippet(), which turns source code text into stylish 
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

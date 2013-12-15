@@ -2,7 +2,7 @@ package Pistachio::Css::Github::Common;
 
 # ABSTRACT: provides number_strip(), number_cell() and code_div()
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
@@ -64,7 +64,7 @@ Pistachio::Css::Github::Common - provides number_strip(), number_cell() and code
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 AUTHOR
 

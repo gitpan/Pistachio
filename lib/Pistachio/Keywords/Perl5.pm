@@ -2,7 +2,7 @@ package Pistachio::Keywords::Perl5;
 
 # ABSTRACT: provides is_keyword()
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
@@ -685,7 +685,7 @@ Pistachio::Keywords::Perl5 - provides is_keyword()
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

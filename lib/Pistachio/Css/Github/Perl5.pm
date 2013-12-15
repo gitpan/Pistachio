@@ -2,7 +2,7 @@ package Pistachio::Css::Github::Perl5;
 
 # ABSTRACT: provides token(), which turns a token type into css style text
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
@@ -28,7 +28,7 @@ my %type_to_style = (
     'Quote::Double'           => 'color:#D14',
     'Quote::Interpolate'      => 'color:#D14',
     'Quote::Single'           => 'color:#D14',
-    'Quotelike::Words'        => 'color:#D14',
+    'QuoteLike::Words'        => 'color:#D14',
     'Regexp'                  => 'color:#009926',
     'Regexp::Match'           => 'color:#009926',
     'Regexp::Substitute'      => 'color:#009926',
@@ -70,7 +70,7 @@ Pistachio::Css::Github::Perl5 - provides token(), which turns a token type into 
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 AUTHOR
 

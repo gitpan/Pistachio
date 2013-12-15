@@ -17,4 +17,5 @@ lib/Pistachio/Token/Transformer/Rule.pm
 lib/Pistachio/Tokenizer.pm
 t/css.t
 t/html.t
+t/quotelike_words.t
 t/supported.t
