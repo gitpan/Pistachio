@@ -1,37 +1,34 @@
 package Pistachio::Html;
-
 # ABSTRACT: provides snippet(), which turns source code text into stylish HTML
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Pistachio::Tokenizer;
 use HTML::Entities;
 use Module::Load;
 use Carp 'croak';
 
-
-#/ @param string $type    object type
-#/ @param string $lang    language, e.g., 'Perl5'
-#/ @param string $style    style, e.g., 'Github'
-#/ @return Pistachio::Html
+# @param string $type    object type
+# @param string $lang    language, e.g., 'Perl5'
+# @param string $style    style, e.g., 'Github'
+# @return Pistachio::Html
 sub new {
     my $type = shift;
     my ($lang, $style) = (shift || '', shift || '');
 
-    #/ current package ability checker
+    # current package ability checker
     my $ensure = sub {croak $_[1] if !__PACKAGE__->can($_[0])};
 
-    #/ common css package
+    # common css package
     my $style_pkg = "Pistachio::Css::${style}::Common";
     my @import = qw(number_cell number_strip code_div);
     eval { load $style_pkg, @import }; 
     croak "Style `$style` isn't supported" if $@;
     $ensure->($_, "$style_pkg doesn't export $_") for @import;
 
-    #/ language-specific css package
+    # language-specific css package
     my $lang_pkg = "Pistachio::Css::${style}::${lang}";
     eval { load $lang_pkg, 'token' };
     croak "Language `$lang` isn't supported" if $@;
@@ -42,9 +39,9 @@ sub new {
     }, $type;
 }
 
-#/ @param Pistachio::Html $this
-#/ @param scalarref $text    source code text
-#/ @return string    line numbers div + source code div html
+# @param Pistachio::Html $this
+# @param scalarref $text    source code text
+# @return string    line numbers div + source code div html
 sub snippet {
     my ($this, $text) = @_;
 
@@ -62,9 +59,10 @@ sub snippet {
         my $it = $this->($text);
 
         while ($_ = $it->()) { 
-            my $value = encode_entities $_->value;
-            my $spec = '<span style="%s">%s</span>';
-            $code .= sprintf $spec, token($_->type), $value;
+            my $style = token($_->type);
+            my $val = encode_entities $_->value;
+            $code .= $style ? qq|<span style="$style">$val</span>|
+                            : qq|<span>$val</span>|;
         }
 
         sprintf qq{<div style="%s">%s</div>}, &code_div, $code;
@@ -88,7 +86,7 @@ Pistachio::Html - provides snippet(), which turns source code text into stylish 
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 

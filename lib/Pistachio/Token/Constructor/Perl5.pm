@@ -1,11 +1,9 @@
 package Pistachio::Token::Constructor::Perl5;
-
-# ABSTRACT: provides text_to_tokens()
-
-our $VERSION = '0.03'; # VERSION
+# ABSTRACT: provides text_to_tokens(), which turns source code text into an array of Pistachio::Tokens
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Pistachio::Keywords::Perl5 'is_keyword';
 use Pistachio::Token;
@@ -14,9 +12,8 @@ use PPI::Tokenizer;
 use Exporter 'import';
 our @EXPORT_OK = qw(text_to_tokens);
 
-
-#/ @param scalarref    reference to text
-#/ @return arrayref    Pistachio::Token array
+# @param scalarref    reference to text
+# @return arrayref    Pistachio::Token array
 sub text_to_tokens(\$) {
     my $ppi = PPI::Tokenizer->new(shift);
 
@@ -45,11 +42,11 @@ __END__
 
 =head1 NAME
 
-Pistachio::Token::Constructor::Perl5 - provides text_to_tokens()
+Pistachio::Token::Constructor::Perl5 - provides text_to_tokens(), which turns source code text into an array of Pistachio::Tokens
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNPOSIS
 

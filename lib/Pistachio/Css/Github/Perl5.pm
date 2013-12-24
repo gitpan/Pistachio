@@ -1,17 +1,16 @@
 package Pistachio::Css::Github::Perl5;
-
 # ABSTRACT: provides token(), which turns a token type into css style text
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Exporter 'import';
 our @EXPORT_OK = qw(token);
 
-#/ map Pistachio::Token type => css style
+# map Pistachio::Token type => css style
 my %type_to_style = (
+    'ArrayIndex'              => 'color:#008080',
     'Cast'                    => 'color:#008080',
     'Cast::Reference'         => 'color:#333;font-weight:bold',
     'Comment'                 => 'color:#999988;font-style:italic',
@@ -35,8 +34,8 @@ my %type_to_style = (
     'Structure'               => 'color:#333',
     'Symbol'                  => 'color:#008080',
     'Symbol::Sub'             => 'color:#333',
-    'Whitespace'              => 'color:#FFF',
     'Word::Coderef::Invoke'   => 'color:#333',
+    'Word::Constant'          => 'color:#D14',
     'Word::Defined'           => 'color:#333',
     'Word::Hashkey'           => 'color:#333',
     'Word::Package'           => 'color:#333',
@@ -49,8 +48,8 @@ my %type_to_style = (
     'Word::Use'               => 'color:#333',
     );
 
-#/ @param string $type    a Pistachio::Token type
-#/ @return string    the type's css
+# @param string $type    a Pistachio::Token type
+# @return string    the type's css, or an empty string
 sub token($) {
     my $type = shift or return '';
     $type_to_style{$type} || '';
@@ -70,7 +69,7 @@ Pistachio::Css::Github::Perl5 - provides token(), which turns a token type into 
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 AUTHOR
 

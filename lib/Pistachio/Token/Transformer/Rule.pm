@@ -1,22 +1,19 @@
 package Pistachio::Token::Transformer::Rule;
-
-# ABSTRACT: express a transformer rule as an object
-
-our $VERSION = '0.03'; # VERSION
+# ABSTRACT: express a token transformer rule as an object
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
-
-#/ @param string $type    object type
-#/ @param hash    object properties
-#/ @return Pistachio::Token::Transformer::Rule
+# @param string $type    object type
+# @param hash    object properties
+# @return Pistachio::Token::Transformer::Rule
 sub new {
     my $type = shift;
     my $this = bless {@_}, $type;
 }
 
-#/ Simple getters.
+# Simple getters.
 sub type  { shift->{type} }
 sub prec  { shift->{prec} }
 sub succ  { shift->{succ} }
@@ -33,11 +30,11 @@ __END__
 
 =head1 NAME
 
-Pistachio::Token::Transformer::Rule - express a transformer rule as an object
+Pistachio::Token::Transformer::Rule - express a token transformer rule as an object
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 

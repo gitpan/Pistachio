@@ -1,16 +1,14 @@
 package Pistachio::Css::Github::Common;
-
 # ABSTRACT: provides number_strip(), number_cell() and code_div()
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Exporter 'import';
 our @EXPORT_OK = qw(number_cell number_strip code_div);
 
-#/ @return string    css for the line count div
+# @return string    css for the line count div
 sub number_strip() {
     my @style = (
         "font-family:Consolas,'Liberation Mono',Courier,monospace",
@@ -21,7 +19,7 @@ sub number_strip() {
     join ';', @style;
 }
 
-#/ @return string    css for a single line count number cell
+# @return string    css for a single line count number cell
 sub number_cell() {
     my @style = (
         'font-size:13px',
@@ -37,7 +35,7 @@ sub number_cell() {
     join ';', @style;
 }
 
-#/ @return string    css for the div containing source code token spans
+# @return string    css for the div containing source code token spans
 sub code_div() {
     my @style = (
         "font-family:Consolas,'Liberation Mono',Courier,monospace",
@@ -64,7 +62,7 @@ Pistachio::Css::Github::Common - provides number_strip(), number_cell() and code
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 AUTHOR
 

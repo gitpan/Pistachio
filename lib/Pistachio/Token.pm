@@ -1,49 +1,46 @@
 package Pistachio::Token;
-
 # ABSTRACT: expresses a single source code language token as an object
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
-
+our $VERSION = '0.04'; # VERSION
 
 use constant {
     TYP => 0, 
     VAL => 1
 };
 
-#/ @param string $type    object type
-#/ @param string $token_type    token type
-#/ @param string  $token_value    token value
-#/ @return Pistachio::Token
+# @param string $type    object type
+# @param string $token_type    token type
+# @param string  $token_value    token value
+# @return Pistachio::Token
 sub new {
     my $type = shift;
     my ($token_type, $token_value) = @_;
     bless [$token_type, $token_value], $type;
 }
 
-#/ @param object $this    a Pistachio::Token
-#/ @param string [optional] $set    set to value, if any
-#/ @return string    token type
+# @param object $this    a Pistachio::Token
+# @param string [optional] $set    set to value, if any
+# @return string    token type
 sub type { 
     my ($this, $set) = @_;
     $this->[TYP] = $set if $set;
     $this->[TYP];
 }
 
-#/ @param Pistachio::Token
-#/ @return string    token value
+# @param Pistachio::Token
+# @return string    token value
 sub value { shift->[VAL] }
 
-#/ @param Pistachio::Token
-#/ @return int    1 if contained token type is Whitespace, or 0
+# @param Pistachio::Token
+# @return int    1 if contained token type is Whitespace, or 0
 sub whitespace { shift->type eq 'Whitespace' ? 1 : 0 }
 
-#/ @param Pistachio::Token $this
-#/ @param string $type    a type to match against
-#/ @param coderef [optional] $val    a value match sub, or undef
-#/ @return int    1 if token object matches $type and $val, or 0
+# @param Pistachio::Token $this
+# @param string $type    a type to match against
+# @param coderef [optional] $val    a value match sub, or undef
+# @return int    1 if token object matches $type and $val, or 0
 sub match {
     my ($this, $type, $val) = @_;
     return 0 unless $this->type =~ /^$type/;
@@ -65,7 +62,7 @@ Pistachio::Token - expresses a single source code language token as an object
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 

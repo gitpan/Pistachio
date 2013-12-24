@@ -1,11 +1,9 @@
 package Pistachio::Supported;
-
 # ABSTRACT: provides supported_languages() and supported_styles()
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Pistachio::Tokenizer;
 use Pistachio::Html;
@@ -21,20 +19,20 @@ my @styles = qw(
     Github
     );
 
-#/ @return array    list of supported languages
+# @return array    list of supported languages
 sub supported_languages {
     _eval(@$_) for &_pair_up;
     @languages;
 }
 
-#/ @return array    list of supported styles
+# @return array    list of supported styles
 sub supported_styles {
     _eval(@$_) for &_pair_up; 
     @styles;
 }
 
-#/ @param string $l    a language, e.g., 'Perl5'
-#/ @param string $s    a style, e.g., 'Github'
+# @param string $l    a language, e.g., 'Perl5'
+# @param string $s    a style, e.g., 'Github'
 sub _eval($$) {
     my ($l, $s) = @_;
 
@@ -45,7 +43,7 @@ sub _eval($$) {
     die "Style `$s` should be supported -- $@" if $@;
 }
 
-#/ @return array    pairs of [language, style]
+# @return array    pairs of [language, style]
 sub _pair_up() {
     my @pairs;
     for my $l (@languages) { push @pairs, [$l, $_] for @styles }
@@ -66,7 +64,7 @@ Pistachio::Supported - provides supported_languages() and supported_styles()
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 AUTHOR
 

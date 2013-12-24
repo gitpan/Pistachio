@@ -1,17 +1,14 @@
 package Pistachio::Keywords::Perl5;
-
 # ABSTRACT: provides is_keyword()
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Exporter 'import';
 our @EXPORT_OK = qw(is_keyword);
 
-
-#/ keywords
+# keywords
 my %words = (
     '$!' => 1,
     '$"' => 1,
@@ -664,8 +661,8 @@ my %words = (
     'y' => 1
 );
 
-#/ @param string $word    any word
-#/ @return int    1 or 0
+# @param string $word    any word
+# @return int    1 or 0
 sub is_keyword($) {
     my $word = shift;
     exists $words{$word} ? 1 : 0;
@@ -685,7 +682,7 @@ Pistachio::Keywords::Perl5 - provides is_keyword()
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 

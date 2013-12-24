@@ -1,15 +1,12 @@
 package Pistachio::Tokenizer;
-
 # ABSTRACT: provides iterator(), which turns source code text into a Pistachio::Token iterator
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Module::Load;
 use Carp 'croak';
-
 
 use constant {
     IDX => 0, 
@@ -18,14 +15,14 @@ use constant {
     TOK => 3
 };
 
-#/ @param string $type    object type
-#/ @param string $lang    tokenizer language, e.g., 'Perl5'
-#/ @return Pistachio::Tokenizer
+# @param string $type    object type
+# @param string $lang    tokenizer language, e.g., 'Perl5'
+# @return Pistachio::Tokenizer
 sub new {
     my $type = shift;
     my $lang = shift or croak 'A language is required';
 
-    #/ load constructor and transformer modules, per $lang
+    # load constructor and transformer modules, per $lang
     eval { 
         my $ns = 'Pistachio::Token';
         load "${ns}::Constructor::${lang}", 'text_to_tokens';
@@ -36,19 +33,19 @@ sub new {
     bless [], $type;
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @param scalarref $text    reference to text
-#/ @return coderef    Pistachio::Token iterator
+# @param Pistachio::Tokenizer $this
+# @param scalarref $text    reference to text
+# @return coderef    Pistachio::Token iterator
 sub iterator {
     my ($this, $text) = @_;
 
-    #/ initialize iterator data
+    # initialize iterator data
     $this->[TOK] = text_to_tokens($text);
     $this->[MAX] = scalar @{$this->[TOK]};
     $this->[IDX] = 0;
     $this->[GOT] = 0;
 
-    #/ iterator closure
+    # iterator closure
     sub {
         return undef if $this->_finished;
         my $token = $this->_transform($this->_curr);
@@ -58,33 +55,33 @@ sub iterator {
     };
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @return int    1 if we're finished iterating, or 0
+# @param Pistachio::Tokenizer $this
+# @return int    1 if we're finished iterating, or 0
 sub _finished { 
     my $this = shift;
     $this->[MAX] - $this->[GOT] < 1 ? 1 : 0;
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @return Pistachio::Token
+# @param Pistachio::Tokenizer $this
+# @return Pistachio::Token
 sub _curr { 
     my $this = shift;
     $this->[TOK]->[$this->[IDX]];
 }
 
-#/ @param Pistachio::Tokenizer
-#/ @return int    1 if there is a previous element, or 0
+# @param Pistachio::Tokenizer
+# @return int    1 if there is a previous element, or 0
 sub _has_prev { shift->[IDX] > 0 ? 1 : 0 }
  
-#/ @param Pistachio::Tokenizer $this
-#/ @return int    1 if there is a next element, or 0
+# @param Pistachio::Tokenizer $this
+# @return int    1 if there is a next element, or 0
 sub _has_next {
     my $this = shift;
     $this->[MAX] - $this->[IDX] > 0 ? 1 : 0;
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @return Pistachio::Token, or undef
+# @param Pistachio::Tokenizer $this
+# @return Pistachio::Token, or undef
 sub _prev {
     my $this = shift;
     return undef unless $this->_has_prev;
@@ -92,8 +89,8 @@ sub _prev {
     $this->_curr;
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @return Pistachio::Token, or undef
+# @param Pistachio::Tokenizer $this
+# @return Pistachio::Token, or undef
 sub _next {
     my $this = shift;
     return undef unless $this->_has_next;
@@ -101,23 +98,23 @@ sub _next {
     $this->_curr;
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @param string $meth    '_prev' or '_next'
-#/ @return Pistachio::Token, or undef
+# @param Pistachio::Tokenizer $this
+# @param string $meth    '_prev' or '_next'
+# @return Pistachio::Token, or undef
 sub _skip_whitespace {
     my ($this, $meth) = @_;
     while ($_ = $this->$meth) { return $_ if !$_->whitespace }
     undef;
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @param Pistachio::Token $token
-#/ @return Pistachio::Token
+# @param Pistachio::Tokenizer $this
+# @param Pistachio::Token $token
+# @return Pistachio::Token
 sub _transform {
     my ($this, $token) = @_;
 
-    #/ Some token types will get transformed into 
-    #/ more specific types by transformation rules.
+    # Some token types will get transformed into 
+    # more specific types by transformation rules.
 
     my $into;
     for my $rule (@{transform_rules()}) {
@@ -140,13 +137,13 @@ sub _transform {
     $token;
 }
 
-#/ @param Pistachio::Tokenizer $this
-#/ @param arrayref $neighbors    (type, val) pairs that might either
-#/                               precede or succeed the current
-#/                               Pistachio::Token, depending on $meth
-#/ @param string $meth    '_prev' or '_next'
-#/ @return int    1 if the current pair is juxtaposed
-#/                with the pairs from $neighbors, or 0
+# @param Pistachio::Tokenizer $this
+# @param arrayref $neighbors    (type, val) pairs that might either
+#                               precede or succeed the current
+#                               Pistachio::Token, depending on $meth
+# @param string $meth    '_prev' or '_next'
+# @return int    1 if the current pair is juxtaposed
+#                with the pairs from $neighbors, or 0
 sub _juxtaposed {
     my ($this, $neighbors, $meth) = @_;
 
@@ -176,7 +173,7 @@ Pistachio::Tokenizer - provides iterator(), which turns source code text into a 
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 

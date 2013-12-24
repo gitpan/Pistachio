@@ -1,15 +1,13 @@
 package Pistachio;
-
 # ABSTRACT: turns source code into stylish HTML
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
+
 use Module::Load;
 
-
-#/ @return string    supported languages and styles message
+# @return string    supported languages and styles message
 sub supported() {
     my @import = qw(supported_languages supported_styles);
     load 'Pistachio::Supported', @import;
@@ -24,8 +22,8 @@ sub supported() {
     $out;
 }
 
-#/ @param string $lang    a language, e.g., 'Perl5'
-#/ @param string $style    a style, e.g., 'Github'
+# @param string $lang    a language, e.g., 'Perl5'
+# @param string $style    a style, e.g., 'Github'
 sub html_handler($$) {
     my ($lang, $style) = @_;
     load 'Pistachio::Html';
@@ -46,7 +44,7 @@ Pistachio - turns source code into stylish HTML
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 

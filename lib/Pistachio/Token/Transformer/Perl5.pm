@@ -1,17 +1,16 @@
 package Pistachio::Token::Transformer::Perl5;
-
 # ABSTRACT: provides transform_rules(), which returns an array of Pistachio::Token::Transformer::Rules
-
-our $VERSION = '0.03'; # VERSION
 
 use strict;
 use warnings;
+our $VERSION = '0.04'; # VERSION
 
 use Pistachio::Token::Transformer::Rule;
 
 use Exporter 'import';
 our @EXPORT_OK = qw(transform_rules);
 
+# @return array    Pistachio::Token::Transformer::Rules
 sub transform_rules {
     my @rules;
 
@@ -82,6 +81,14 @@ sub transform_rules {
 
     push @rules, Pistachio::Token::Transformer::Rule->new(
         type => 'Word::Defined',
+        prec => [['Word::Reserved::Keyword', 'use'], 
+                 ['Word::Defined', 'constant']],
+        succ => [['Operator', '=>']],
+        into => 'Word::Constant',
+    );
+
+    push @rules, Pistachio::Token::Transformer::Rule->new(
+        type => 'Word::Defined',
         val  => sub {shift eq 'lib'},
         into => 'Word::Reserved',
     );
@@ -139,7 +146,7 @@ Pistachio::Token::Transformer::Perl5 - provides transform_rules(), which returns
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 AUTHOR
 
