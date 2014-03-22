@@ -7,7 +7,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.132830'
+generated_by: 'Dist::Zilla version 5.014, CPAN::Meta::Converter version 2.133380'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -15,11 +15,11 @@ meta-spec:
 name: Pistachio
 requires:
   Carp: 0
-  Exporter: 0
   HTML::Entities: 0
+  JBD::Core::Exporter: 0
   Module::Load: 0
   PPI::Tokenizer: 0
   constant: 0
   strict: 0
   warnings: 0
-version: 0.04
+version: 0.05

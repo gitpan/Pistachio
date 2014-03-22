@@ -6,6 +6,7 @@ use Test::More;
 BEGIN { 
     use_ok('Pistachio::Css::Github::Perl5', qw(token));
     use_ok('Pistachio::Tokenizer');
+    use_ok('Pistachio::Html');
 }
 
 my @tests = (
@@ -14,8 +15,8 @@ my @tests = (
     ['my @words = qw(a b c);', 6, 'QuoteLike::Words', 'color:#D14'],
     );
 
-
-my $tokenizer = Pistachio::Tokenizer->new('Perl5');
+my $html = Pistachio::Html->new('Perl5', 'Github');
+my $tokenizer = Pistachio::Tokenizer->new($html->lang);
 
 TEST: for my $test (@tests) {
     my ($text, $expected_pos, $expected_type, $expected_style) = @$test;
@@ -24,10 +25,13 @@ TEST: for my $test (@tests) {
     my $it = $tokenizer->iterator(\$text);
 
     while ($_ = $it->()) {
+        my $msg = "TEST: "
+                . "($expected_style, " . token($_->type) . ") "
+                . "{$expected_type, ${\$_->type}}";
         $token_pos == $expected_pos && do {
             my $passed = $expected_type eq $_->type 
                       && $expected_style eq token $_->type;
-            ok($passed, "Passed test -- $expected_type");
+            ok($passed, $msg);
             next TEST;
         };
         $token_pos++;

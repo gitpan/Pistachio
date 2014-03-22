@@ -3,13 +3,13 @@ package Pistachio::Token::Constructor::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 use Pistachio::Keywords::Perl5 'is_keyword';
 use Pistachio::Token;
 use PPI::Tokenizer;
 
-use Exporter 'import';
+use JBD::Core::Exporter;
 our @EXPORT_OK = qw(text_to_tokens);
 
 # @param scalarref    reference to text
@@ -46,7 +46,7 @@ Pistachio::Token::Constructor::Perl5 - provides text_to_tokens(), which turns so
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNPOSIS
 
@@ -67,7 +67,7 @@ Joel Dalley <joeldalley@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Joel Dalley.
+This software is copyright (c) 2014 by Joel Dalley.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

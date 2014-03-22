@@ -3,9 +3,9 @@ package Pistachio::Css::Github::Common;
 
 use strict;
 use warnings;
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
-use Exporter 'import';
+use JBD::Core::Exporter;
 our @EXPORT_OK = qw(number_cell number_strip code_div);
 
 # @return string    css for the line count div
@@ -62,7 +62,7 @@ Pistachio::Css::Github::Common - provides number_strip(), number_cell() and code
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 AUTHOR
 
@@ -70,7 +70,7 @@ Joel Dalley <joeldalley@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Joel Dalley.
+This software is copyright (c) 2014 by Joel Dalley.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

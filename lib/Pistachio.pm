@@ -3,7 +3,7 @@ package Pistachio;
 
 use strict;
 use warnings;
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 use Module::Load;
 
@@ -44,13 +44,18 @@ Pistachio - turns source code into stylish HTML
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
  use Pistachio;
 
- # List supported languages and styles
+ # List supported languages and styles.
+ #
+ #     (Currently)
+ #     Languages: Perl5, JSON
+ #     Styles:    Github
+ #
  print Pistachio::supported;
 
  # Get a Pistachio::Html object
@@ -68,7 +73,7 @@ Joel Dalley <joeldalley@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Joel Dalley.
+This software is copyright (c) 2014 by Joel Dalley.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

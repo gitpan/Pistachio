@@ -3,7 +3,7 @@ package Pistachio::Token::Transformer::Rule;
 
 use strict;
 use warnings;
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 # @param string $type    object type
 # @param hash    object properties
@@ -34,7 +34,7 @@ Pistachio::Token::Transformer::Rule - express a token transformer rule as an obj
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
@@ -68,7 +68,7 @@ Joel Dalley <joeldalley@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Joel Dalley.
+This software is copyright (c) 2014 by Joel Dalley.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

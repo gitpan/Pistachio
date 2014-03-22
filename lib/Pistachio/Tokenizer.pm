@@ -3,34 +3,27 @@ package Pistachio::Tokenizer;
 
 use strict;
 use warnings;
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 use Module::Load;
 use Carp 'croak';
 
 use constant {
-    IDX => 0, 
-    GOT => 1, 
-    MAX => 2, 
-    TOK => 3
+    LNG => 0,
+    IDX => 1, 
+    GOT => 2, 
+    MAX => 3, 
+    TOK => 4
 };
 
-# @param string $type    object type
-# @param string $lang    tokenizer language, e.g., 'Perl5'
+# @param string $type Object type.
+# @param Pistachio::Language $lang Language object. 
 # @return Pistachio::Tokenizer
 sub new {
     my $type = shift;
-    my $lang = shift or croak 'A language is required';
-
-    # load constructor and transformer modules, per $lang
-    eval { 
-        my $ns = 'Pistachio::Token';
-        load "${ns}::Constructor::${lang}", 'text_to_tokens';
-        load "${ns}::Transformer::${lang}", 'transform_rules';
-    };
-    croak "Unsupported language `$lang`" if $@;
-
-    bless [], $type;
+    my $lang = ref $_[0] eq 'Pistachio::Language' && $_[0]
+               or croak 'A Pistachio::Language is required';
+    bless [$lang], $type;
 }
 
 # @param Pistachio::Tokenizer $this
@@ -40,7 +33,7 @@ sub iterator {
     my ($this, $text) = @_;
 
     # initialize iterator data
-    $this->[TOK] = text_to_tokens($text);
+    $this->[TOK] = $this->[LNG]->tokens($text);
     $this->[MAX] = scalar @{$this->[TOK]};
     $this->[IDX] = 0;
     $this->[GOT] = 0;
@@ -117,7 +110,7 @@ sub _transform {
     # more specific types by transformation rules.
 
     my $into;
-    for my $rule (@{transform_rules()}) {
+    for my $rule (@{$this->[LNG]->transform_rules}) {
         $token->match($rule->type, $rule->value) or next;
 
         $rule->prec and do {
@@ -173,7 +166,7 @@ Pistachio::Tokenizer - provides iterator(), which turns source code text into a 
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
@@ -193,7 +186,7 @@ Joel Dalley <joeldalley@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Joel Dalley.
+This software is copyright (c) 2014 by Joel Dalley.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
