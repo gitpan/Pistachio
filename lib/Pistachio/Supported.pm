@@ -3,7 +3,7 @@ package Pistachio::Supported;
 
 use strict;
 use warnings;
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 use Pistachio::Tokenizer;
 use Pistachio::Language;
@@ -65,7 +65,7 @@ Pistachio::Supported - provides supported_languages() and supported_styles()
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 AUTHOR
 

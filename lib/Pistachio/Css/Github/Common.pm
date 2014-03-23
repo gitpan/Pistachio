@@ -3,7 +3,7 @@ package Pistachio::Css::Github::Common;
 
 use strict;
 use warnings;
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 use JBD::Core::Exporter;
 our @EXPORT_OK = qw(number_cell number_strip code_div);
@@ -62,7 +62,7 @@ Pistachio::Css::Github::Common - provides number_strip(), number_cell() and code
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 AUTHOR
 

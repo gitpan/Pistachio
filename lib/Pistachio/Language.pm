@@ -3,7 +3,7 @@ package Pistachio::Language;
 
 use strict;
 use warnings;
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 # @param string $type Object type.
 # @param string $lang A language identifier. E.g., 'Perl5'.
@@ -51,12 +51,14 @@ Pistachio::Language - provides snippet(), which turns source code text into styl
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 
+L<lib-JBD|https://github.com/joeldalley/lib-JBD>
+
  # Get std_parse from lib-JBD:
- # L<https://github.com/joeldalley/lib-JBD>
+
  use JBD::JSON 'std_parse';
 
  # Define a Pistachio::Language object by specifying

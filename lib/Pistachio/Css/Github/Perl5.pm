@@ -3,7 +3,7 @@ package Pistachio::Css::Github::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 use JBD::Core::Exporter;
 our @EXPORT_OK = qw(token);
@@ -69,7 +69,7 @@ Pistachio::Css::Github::Perl5 - provides token(), which turns a token type into 
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 AUTHOR
 

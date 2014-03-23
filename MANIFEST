@@ -4,6 +4,7 @@ MANIFEST
 META.yml
 Makefile.PL
 README
+README.md
 dist.ini
 lib/Pistachio.pm
 lib/Pistachio/Css/Github/Common.pm
