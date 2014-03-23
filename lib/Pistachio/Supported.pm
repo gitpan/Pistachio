@@ -3,13 +3,13 @@ package Pistachio::Supported;
 
 use strict;
 use warnings;
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
 use Pistachio::Tokenizer;
 use Pistachio::Language;
 use Pistachio::Html;
 
-use JBD::Core::Exporter;
+use Exporter 'import';
 our @EXPORT_OK = qw(supported_languages supported_styles);
 
 my @languages = qw(
@@ -65,7 +65,7 @@ Pistachio::Supported - provides supported_languages() and supported_styles()
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 AUTHOR
 

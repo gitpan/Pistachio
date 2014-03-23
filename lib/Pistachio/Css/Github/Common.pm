@@ -3,9 +3,9 @@ package Pistachio::Css::Github::Common;
 
 use strict;
 use warnings;
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
-use JBD::Core::Exporter;
+use Exporter 'import';
 our @EXPORT_OK = qw(number_cell number_strip code_div);
 
 # @return string    css for the line count div
@@ -62,7 +62,7 @@ Pistachio::Css::Github::Common - provides number_strip(), number_cell() and code
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 AUTHOR
 

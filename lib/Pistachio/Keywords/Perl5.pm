@@ -3,9 +3,9 @@ package Pistachio::Keywords::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
-use JBD::Core::Exporter;
+use Exporter 'import';
 our @EXPORT_OK = qw(is_keyword);
 
 # keywords
@@ -682,7 +682,7 @@ Pistachio::Keywords::Perl5 - provides is_keyword()
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 SYNOPSIS
 

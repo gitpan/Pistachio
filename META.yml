@@ -15,11 +15,11 @@ meta-spec:
 name: Pistachio
 requires:
   Carp: 0
+  Exporter: 0
   HTML::Entities: 0
-  JBD::Core::Exporter: 0
   Module::Load: 0
   PPI::Tokenizer: 0
   constant: 0
   strict: 0
   warnings: 0
-version: 0.06
+version: 0.07

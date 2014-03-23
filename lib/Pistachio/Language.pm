@@ -1,9 +1,9 @@
 package Pistachio::Language;
-# ABSTRACT: provides snippet(), which turns source code text into stylish HTML
+# ABSTRACT: provides an API for plugging arbitrary language tokenizers and stylizers into Pistachio
 
 use strict;
 use warnings;
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
 # @param string $type Object type.
 # @param string $lang A language identifier. E.g., 'Perl5'.
@@ -47,46 +47,11 @@ __END__
 
 =head1 NAME
 
-Pistachio::Language - provides snippet(), which turns source code text into stylish HTML
+Pistachio::Language - provides an API for plugging arbitrary language tokenizers and stylizers into Pistachio
 
 =head1 VERSION
 
-version 0.06
-
-=head1 SYNOPSIS
-
-L<lib-JBD|https://github.com/joeldalley/lib-JBD>
-
- # Get std_parse from lib-JBD:
-
- use JBD::JSON 'std_parse';
-
- # Define a Pistachio::Language object by specifying
- # the tokens, css and (optionally) tranformer_rules subs; 
- # This way, the existing Pistachio core can render JSON
- # into Github-styled HTML pages, even though Pistachio knows 
- # nothing about how to parse JSON, and gets all of its CSS 
- # CSS style information from this definition.
-
- my $lang = Pistachio::Language->new('JSON',
-     tokens => sub {
-         my $tokens = std_parse 'json_text', shift;
-         [map Pistachio::Token->new($_->type, $_->value), @$tokens];
-     },
-     css => sub {
-         my %type_to_style = (
-             JsonNum           => 'color:#008080',
-             JsonNull          => 'color:#000',
-             JsonBool          => 'color:#000',
-             JsonString        => 'color:#D14',
-             JsonColon         => 'color:#333',
-             JsonComma         => 'color:#333',
-             JsonSquareBracket => 'color:#333',
-             JsonCurlyBrace    => 'color:#333',
-             )
-         $type_to_style{$_[0] || ''} || '';
-     },
- );
+version 0.07
 
 =head1 AUTHOR
 

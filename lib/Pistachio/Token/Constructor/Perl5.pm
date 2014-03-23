@@ -3,18 +3,15 @@ package Pistachio::Token::Constructor::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
 use Pistachio::Keywords::Perl5 'is_keyword';
 use Pistachio::Token;
 use PPI::Tokenizer;
 
-use JBD::Core::Exporter;
-our @EXPORT_OK = qw(text_to_tokens);
-
 # @param scalarref    reference to text
 # @return arrayref    Pistachio::Token array
-sub text_to_tokens(\$) {
+sub text_to_tokens {
     my $ppi = PPI::Tokenizer->new(shift);
 
     my @tokens;
@@ -46,7 +43,7 @@ Pistachio::Token::Constructor::Perl5 - provides text_to_tokens(), which turns so
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 SYNPOSIS
 

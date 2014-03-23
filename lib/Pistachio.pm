@@ -3,7 +3,7 @@ package Pistachio;
 
 use strict;
 use warnings;
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
 use Module::Load;
 
@@ -44,7 +44,7 @@ Pistachio - turns source code into stylish HTML
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 SYNOPSIS
 
@@ -64,9 +64,11 @@ version 0.06
 
 =head1 ROLL YOUR OWN LANGUAGE SUPPORT
 
-Currently, only Perl 5 support is baked into Pistachio (via L<PPI::Tokenizer>). 
+Currently, only Perl 5 support is baked into Pistachio (via L<PPI::Tokenizer>).
 
-However, using L<Pistachio::Language>, you can roll your own support for any language, as long as you can provide two subroutines. They are:
+However, using L<Pistachio::Language>, you can roll your own support for any language.
+
+A Pistachio::Language must be provided with two subroutines. They are:
 
 =over
 
@@ -96,10 +98,9 @@ L<https://github.com/joeldalley/lib-JBD> (JBD::JSON).
 
 =back
 
-Providing a Pistachio::Language that knows how to parse and style arbitrary tokens allows the Pistachio core to render stylish HTML for those tokens.
+In this example, JBD::JSON is used to parse JSON text into tokens, then maps those tokens to Pistachio::Tokens.
 
-In this example, we use JBD::JSON to parse JSON text, then map those tokens to Pistachio::Tokens. 
-And we map the token types parsing with JBD::JSON produces to CSS style definitions.
+Also, a simple hash lookup is used to map the token types JBD::JSON produces to CSS definitions.
 
  use Pistachio;
  use Pistachio::Token;
@@ -138,7 +139,7 @@ And we map the token types parsing with JBD::JSON produces to CSS style definiti
  # Now Pistachio understands how to convert JSON input texts 
  # into Github-styled HTML output. Proceed as in the synopsis:
 
- my $json = join "\n", '{', '"key1":"value1", ..., '}';
+ my $json = '{"key1":"value1"}';
  my $snip = $handler->snippet(\$json);
 
 =head1 AUTHOR

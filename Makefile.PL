@@ -22,8 +22,8 @@ my %WriteMakefileArgs = (
   "NAME" => "Pistachio",
   "PREREQ_PM" => {
     "Carp" => 0,
+    "Exporter" => 0,
     "HTML::Entities" => 0,
-    "JBD::Core::Exporter" => 0,
     "Module::Load" => 0,
     "PPI::Tokenizer" => 0,
     "constant" => 0,
@@ -33,7 +33,7 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Test::More" => 0
   },
-  "VERSION" => "0.06",
+  "VERSION" => "0.07",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -42,8 +42,8 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Carp" => 0,
+  "Exporter" => 0,
   "HTML::Entities" => 0,
-  "JBD::Core::Exporter" => 0,
   "Module::Load" => 0,
   "PPI::Tokenizer" => 0,
   "Test::More" => 0,
