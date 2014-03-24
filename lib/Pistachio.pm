@@ -3,7 +3,7 @@ package Pistachio;
 
 use strict;
 use warnings;
-our $VERSION = '0.07'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 use Module::Load;
 
@@ -44,7 +44,7 @@ Pistachio - turns source code into stylish HTML
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -102,10 +102,13 @@ In this example, JBD::JSON is used to parse JSON text into tokens, then maps tho
 
 Also, a simple hash lookup is used to map the token types JBD::JSON produces to CSS definitions.
 
+ use strict;
+ use warnings;
+
  use Pistachio;
  use Pistachio::Token;
  use Pistachio::Language;
- use JBD::JSON 'parse';
+ use JBD::JSON 'std_parse';
 
  # Argument: JSON input text. Returns arrayref of Pistachio::Tokens.
  my $tokens = sub {
@@ -126,7 +129,7 @@ Also, a simple hash lookup is used to map the token types JBD::JSON produces to 
          JsonCurlyBrace    => 'color:#333',
          );
      $type_to_style{$_[0] || ''} || '';
- },
+ };
 
  # Construct a Pistachio::Html, loaded with our JSON language object.
  my $lang = Pistachio::Language->new(
@@ -134,7 +137,7 @@ Also, a simple hash lookup is used to map the token types JBD::JSON produces to 
      tokens => $tokens, 
      css    => $css
  );
- my $handler = Pistachio::html_handler($lang, 'GitHub');
+ my $handler = Pistachio::html_handler($lang, 'Github');
 
  # Now Pistachio understands how to convert JSON input texts 
  # into Github-styled HTML output. Proceed as in the synopsis:

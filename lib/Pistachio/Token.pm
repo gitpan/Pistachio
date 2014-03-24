@@ -3,7 +3,7 @@ package Pistachio::Token;
 
 use strict;
 use warnings;
-our $VERSION = '0.07'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 use constant {
     TYP => 0, 
@@ -62,7 +62,7 @@ Pistachio::Token - expresses a single source code language token as an object
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNOPSIS
 

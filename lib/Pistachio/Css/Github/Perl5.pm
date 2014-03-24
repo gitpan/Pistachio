@@ -3,7 +3,7 @@ package Pistachio::Css::Github::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.07'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 # map Pistachio::Token type => css style
 my %type_to_style = (
@@ -66,7 +66,7 @@ Pistachio::Css::Github::Perl5 - provides token(), which turns a token type into 
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 AUTHOR
 

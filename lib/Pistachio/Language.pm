@@ -3,7 +3,7 @@ package Pistachio::Language;
 
 use strict;
 use warnings;
-our $VERSION = '0.07'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 # @param string $type Object type.
 # @param string $lang A language identifier. E.g., 'Perl5'.
@@ -51,7 +51,7 @@ Pistachio::Language - provides an API for plugging arbitrary language tokenizers
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 AUTHOR
 

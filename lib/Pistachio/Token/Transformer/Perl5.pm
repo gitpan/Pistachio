@@ -3,7 +3,7 @@ package Pistachio::Token::Transformer::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.07'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 use Pistachio::Token::Transformer::Rule;
 
@@ -143,7 +143,7 @@ Pistachio::Token::Transformer::Perl5 - provides transform_rules(), which returns
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 AUTHOR
 

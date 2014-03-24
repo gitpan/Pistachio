@@ -3,7 +3,7 @@ package Pistachio::Token::Constructor::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.07'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 use Pistachio::Keywords::Perl5 'is_keyword';
 use Pistachio::Token;
@@ -43,7 +43,7 @@ Pistachio::Token::Constructor::Perl5 - provides text_to_tokens(), which turns so
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNPOSIS
 
