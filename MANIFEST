@@ -7,7 +7,7 @@ README
 README.md
 dist.ini
 lib/Pistachio.pm
-lib/Pistachio/Css/Github/Common.pm
+lib/Pistachio/Css/Github.pm
 lib/Pistachio/Css/Github/Perl5.pm
 lib/Pistachio/Html.pm
 lib/Pistachio/Keywords/Perl5.pm

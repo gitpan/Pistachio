@@ -1,9 +1,12 @@
 package Pistachio::Css::Github::Perl5;
-# ABSTRACT: provides token(), which turns a token type into css-styled text
+# ABSTRACT: provides type_to_style(), which turns Pistachio::Token types into CSS definitions
 
 use strict;
 use warnings;
-our $VERSION = '0.08'; # VERSION
+our $VERSION = '0.09'; # VERSION
+
+use Exporter 'import';
+our @EXPORT_OK = 'type_to_style';
 
 # map Pistachio::Token type => css style
 my %type_to_style = (
@@ -47,10 +50,7 @@ my %type_to_style = (
 
 # @param string $type    a Pistachio::Token type
 # @return string    the type's css, or an empty string
-sub token {
-    my $type = shift or return '';
-    $type_to_style{$type} || '';
-}
+sub type_to_style { use Data::Dumper;print Dumper \@_;$type_to_style{$_[0] || ''} || '' }
 
 1;
 
@@ -62,11 +62,11 @@ __END__
 
 =head1 NAME
 
-Pistachio::Css::Github::Perl5 - provides token(), which turns a token type into css-styled text
+Pistachio::Css::Github::Perl5 - provides type_to_style(), which turns Pistachio::Token types into CSS definitions
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 AUTHOR
 

@@ -3,9 +3,11 @@ package Pistachio::Token::Transformer::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.08'; # VERSION
+our $VERSION = '0.09'; # VERSION
 
 use Pistachio::Token::Transformer::Rule;
+use Exporter 'import';
+our @EXPORT_OK = 'transform_rules';
 
 # @return arrayref    Pistachio::Token::Transformer::Rules
 sub transform_rules {
@@ -143,7 +145,7 @@ Pistachio::Token::Transformer::Perl5 - provides transform_rules(), which returns
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 AUTHOR
 
