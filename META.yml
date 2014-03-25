@@ -15,7 +15,6 @@ meta-spec:
 name: Pistachio
 requires:
   Carp: 0
-  Data::Dumper: 0
   Exporter: 0
   HTML::Entities: 0
   Module::Load: 0
@@ -23,4 +22,4 @@ requires:
   constant: 0
   strict: 0
   warnings: 0
-version: 0.09
+version: 0.10

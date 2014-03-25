@@ -3,7 +3,7 @@ package Pistachio::Token::Transformer::Rule;
 
 use strict;
 use warnings;
-our $VERSION = '0.09'; # VERSION
+our $VERSION = '0.10'; # VERSION
 
 # @param string $type    object type
 # @param hash    object properties
@@ -34,7 +34,7 @@ Pistachio::Token::Transformer::Rule - express a token transformer rule as an obj
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

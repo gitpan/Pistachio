@@ -3,7 +3,7 @@ package Pistachio::Css::Github::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.09'; # VERSION
+our $VERSION = '0.10'; # VERSION
 
 use Exporter 'import';
 our @EXPORT_OK = 'type_to_style';
@@ -50,7 +50,7 @@ my %type_to_style = (
 
 # @param string $type    a Pistachio::Token type
 # @return string    the type's css, or an empty string
-sub type_to_style { use Data::Dumper;print Dumper \@_;$type_to_style{$_[0] || ''} || '' }
+sub type_to_style { $type_to_style{$_[0] || ''} || '' }
 
 1;
 
@@ -66,7 +66,7 @@ Pistachio::Css::Github::Perl5 - provides type_to_style(), which turns Pistachio:
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 AUTHOR
 

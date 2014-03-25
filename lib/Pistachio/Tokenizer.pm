@@ -3,7 +3,7 @@ package Pistachio::Tokenizer;
 
 use strict;
 use warnings;
-our $VERSION = '0.09'; # VERSION
+our $VERSION = '0.10'; # VERSION
 
 use Module::Load;
 use Carp 'croak';
@@ -166,7 +166,7 @@ Pistachio::Tokenizer - provides iterator(), which turns source code text into a 
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

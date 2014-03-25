@@ -3,7 +3,7 @@ package Pistachio::Html;
 
 use strict;
 use warnings;
-our $VERSION = '0.09'; # VERSION
+our $VERSION = '0.10'; # VERSION
 
 use Pistachio::Tokenizer;
 use Pistachio::Language;
@@ -111,7 +111,7 @@ Pistachio::Html - provides snippet(), which turns source code text into stylish 
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

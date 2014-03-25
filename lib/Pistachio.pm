@@ -3,7 +3,7 @@ package Pistachio;
 
 use strict;
 use warnings;
-our $VERSION = '0.09'; # VERSION
+our $VERSION = '0.10'; # VERSION
 
 use Module::Load;
 
@@ -44,7 +44,7 @@ Pistachio - turns source code into stylish HTML
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

@@ -3,7 +3,7 @@ package Pistachio::Keywords::Perl5;
 
 use strict;
 use warnings;
-our $VERSION = '0.09'; # VERSION
+our $VERSION = '0.10'; # VERSION
 
 use Exporter 'import';
 our @EXPORT_OK = qw(is_keyword);
@@ -682,7 +682,7 @@ Pistachio::Keywords::Perl5 - provides is_keyword()
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
